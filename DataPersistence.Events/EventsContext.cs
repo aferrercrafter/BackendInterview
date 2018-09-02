@@ -6,6 +6,6 @@ namespace DataPersistence.Events
     public class EventsContext : DbContext
     {
         public EventsContext() { }
-        public DbSet<Eventos> Eventos { get; set; }
+        public DbSet<Domain.Eventos.Events> Eventos { get; set; }
     }
 }
