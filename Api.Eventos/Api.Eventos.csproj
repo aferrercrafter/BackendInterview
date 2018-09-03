@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,7 +10,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="5.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Services\Core.Events\Core.Events.csproj" />
+    <ProjectReference Include="..\Infrastructure\DataPersistence.Events\DataPersistence.Events.csproj" />
   </ItemGroup>
 
 </Project>

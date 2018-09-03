@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Infrastructure.CrossCutting
 {
@@ -24,6 +25,11 @@ namespace Infrastructure.CrossCutting
             return _repository.GetById(Id);
         }
 
+        public Task<T> GetByIdAsync(object Id)
+        {
+            return _repository.GetByIdAsync(Id);
+        }
+
         public IQueryable<T> Query()
         {
             return _repository.Query();
@@ -32,6 +38,11 @@ namespace Infrastructure.CrossCutting
         public void Insert(T obj)
         {
             _repository.Insert(obj);
+        }
+
+        public Task InsertAsync(T obj)
+        {
+            return _repository.InsertAsync(obj);
         }
 
         public void Update(T obj)
@@ -47,6 +58,11 @@ namespace Infrastructure.CrossCutting
         public void Save()
         {
             _repository.Save();
+        }
+
+        public Task<int> SaveAsync()
+        {
+            return _repository.SaveAsync();
         }
     }
 }

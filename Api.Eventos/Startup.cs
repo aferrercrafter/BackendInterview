@@ -10,6 +10,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Core.Events;
+using Infrastructure.CrossCutting;
+using DataPersistence.Events;
+using DataPersistence.Events.Respository;
+using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 
 namespace Api.Eventos
 {
@@ -26,6 +32,13 @@ namespace Api.Eventos
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddDbContext<EventsContext>(options => options.UseSqlServer(Configuration.GetConnectionString("EventsDB")));
+
+            services.AddScoped<IEventsRepository, EventsRepository>();
+            services.AddScoped<IEventsService, EventsService>();
+
+            services.AddAutoMapper();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,8 +52,7 @@ namespace Api.Eventos
             {
                 app.UseHsts();
             }
-
-            app.UseHttpsRedirection();
+            
             app.UseMvc();
         }
     }

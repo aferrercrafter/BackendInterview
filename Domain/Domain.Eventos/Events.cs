@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Domain.Eventos
+namespace Domain.Events
 {
     public class Events
     {
@@ -8,7 +8,7 @@ namespace Domain.Eventos
         public string Title { get; set; }
         public string EventImage { get; set; }
         public string Description { get; set; }
-        public DateTime[] Dates { get; set; }
+        public DatePrice[] Dates { get; set; }
         public string Location { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Infrastructure.CrossCutting
 {
@@ -20,8 +21,11 @@ namespace Infrastructure.CrossCutting
         }
         public T GetById(object Id)
         {
-
             return dbSet.Find(Id);
+        }
+        public Task<T> GetByIdAsync(object Id)
+        {
+            return dbSet.FindAsync(Id);
         }
         public IQueryable<T> Query()
         {
@@ -30,6 +34,10 @@ namespace Infrastructure.CrossCutting
         public void Insert(T obj)
         {
             dbSet.Add(obj);
+        }
+        public Task InsertAsync(T obj)
+        {
+            return dbSet.AddAsync(obj);
         }
         public void Update(T obj)
         {
@@ -47,6 +55,10 @@ namespace Infrastructure.CrossCutting
         public void Save()
         {
             db.SaveChanges();
+        }
+        public Task<int> SaveAsync()
+        {
+            return db.SaveChangesAsync();
         }
         protected virtual void Dispose(bool disposing)
         {

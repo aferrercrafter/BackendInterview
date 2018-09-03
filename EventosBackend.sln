@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Eventos", "Api.Eventos\Api.Eventos.csproj", "{ED9AA0C9-A5DE-4134-8CC3-30811A348C40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.Eventos", "Api.Eventos\Api.Eventos.csproj", "{ED9AA0C9-A5DE-4134-8CC3-30811A348C40}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{AADB0732-495A-4CDD-8E1F-7B60B381B70F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Eventos", "Domain.Eventos\Domain.Eventos.csproj", "{93AE3321-9F1C-48A2-BF91-8F2F6708EF5C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{EF8C442C-28F9-4554-9A72-8403FE2A2D6E}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{E592F06E-58E3-4135-A9B1-43F7E208F976}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Events", "Domain\Domain.Eventos\Domain.Events.csproj", "{93AE3321-9F1C-48A2-BF91-8F2F6708EF5C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{2FBBFFC7-7A99-4484-B0F4-D3A99E3790A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCutting", "CrossCutting\CrossCutting.csproj", "{80EF69B3-5C42-440B-B059-11FBEAB3485A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossCutting", "Infrastructure\CrossCutting\CrossCutting.csproj", "{80EF69B3-5C42-440B-B059-11FBEAB3485A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataPersistence.Events", "DataPersistence.Events\DataPersistence.Events.csproj", "{B6CDC403-9093-4B8B-8CE3-7AFAB326519F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataPersistence.Events", "Infrastructure\DataPersistence.Events\DataPersistence.Events.csproj", "{B6CDC403-9093-4B8B-8CE3-7AFAB326519F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{9F9F5DD8-533F-4773-AC7E-B597EF797526}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Events", "Services\Core.Events\Core.Events.csproj", "{65E8B147-DBD4-4858-83C4-836BD2F78D06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +41,10 @@ Global
 		{B6CDC403-9093-4B8B-8CE3-7AFAB326519F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6CDC403-9093-4B8B-8CE3-7AFAB326519F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6CDC403-9093-4B8B-8CE3-7AFAB326519F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65E8B147-DBD4-4858-83C4-836BD2F78D06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65E8B147-DBD4-4858-83C4-836BD2F78D06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65E8B147-DBD4-4858-83C4-836BD2F78D06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65E8B147-DBD4-4858-83C4-836BD2F78D06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +53,7 @@ Global
 		{93AE3321-9F1C-48A2-BF91-8F2F6708EF5C} = {AADB0732-495A-4CDD-8E1F-7B60B381B70F}
 		{80EF69B3-5C42-440B-B059-11FBEAB3485A} = {2FBBFFC7-7A99-4484-B0F4-D3A99E3790A2}
 		{B6CDC403-9093-4B8B-8CE3-7AFAB326519F} = {2FBBFFC7-7A99-4484-B0F4-D3A99E3790A2}
+		{65E8B147-DBD4-4858-83C4-836BD2F78D06} = {9F9F5DD8-533F-4773-AC7E-B597EF797526}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8775B560-14DE-4FE6-9A59-826188943525}
