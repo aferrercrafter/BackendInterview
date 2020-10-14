@@ -1,0 +1,143 @@
+basePath: /api/v1
+definitions:
+  httputil.HTTPError:
+    properties:
+      code:
+        example: 400
+        type: integer
+      message:
+        example: status bad request
+        type: string
+    type: object
+  topsecret.Position:
+    properties:
+      x:
+        type: string
+      "y":
+        type: string
+    required:
+    - x
+    - "y"
+    type: object
+  topsecret.SatellitesResponse:
+    properties:
+      message:
+        type: string
+      position:
+        $ref: '#/definitions/topsecret.Position'
+        type: object
+    required:
+    - message
+    - position
+    type: object
+  topsecretsplit.Position:
+    properties:
+      x:
+        type: string
+      "y":
+        type: string
+    required:
+    - x
+    - "y"
+    type: object
+  topsecretsplit.Satellite:
+    properties:
+      distance:
+        type: number
+      message:
+        items:
+          type: string
+        type: array
+    required:
+    - distance
+    - message
+    type: object
+  topsecretsplit.SatelliteResponse:
+    properties:
+      message:
+        type: string
+      position:
+        $ref: '#/definitions/topsecretsplit.Position'
+        type: object
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: aferrercrafter@gmail.com
+    name: Arnaldo Corzo
+    url: https://github.com/aferrercrafter
+  description: Servicio topsecret para operación fuego quazar.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: fuego-quazar API
+  version: "1.0"
+paths:
+  /topsecret:
+    post:
+      consumes:
+      - application/json
+      description: Obtiene posición y mensaje escondido
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/topsecret.SatellitesResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Obtiene posición y mensaje escondido
+  /topsecret_split:
+    get:
+      consumes:
+      - application/json
+      description: Obtiene posición y mensaje escondido
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/topsecretsplit.SatelliteResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Obtiene posición y mensaje escondido
+    post:
+      consumes:
+      - application/json
+      description: Añade la información de un satélite
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/topsecretsplit.Satellite'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Añade la información de un satélite
+swagger: "2.0"
